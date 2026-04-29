@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-class-attendance-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: gold-consistency gate failed: cluster A: only 29% of active.value stems appear in history (threshold \u226550%); missing: ['pac', 'practice', 'rent', 'self', 'twice']; cluster C: user-role coverage of active value is 29% (history-wide 29%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.; cluster H: v2-distinguishing chunk(s) ['self-paced ceramics practice twice a week at the rented studio'] have no token overlap with USER turns of the active session (s1). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency.",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 50.00600274899625,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 35.67044593099854,
+      "sample_id": "p3-drift-class-attendance-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 31.675357833999442,
+      "sample_id": "p3-drift-class-attendance-001-hard"
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: gold-consistency gate failed: cluster A: only 29% of active.value stems appear in history (threshold \u226550%); missing: ['pac', 'practice', 'rent', 'self', 'twice']; cluster C: user-role coverage of active value is 29% (history-wide 29%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.; cluster H: v2-distinguishing chunk(s) ['self-paced ceramics practice twice a week at the rented studio'] have no token overlap with USER turns of the active session (s1). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency."
+  ],
+  "timestamp": "2026-04-26T23:43:47.747834+00:00"
+}

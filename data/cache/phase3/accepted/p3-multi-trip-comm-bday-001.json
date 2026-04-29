@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-multi-trip-comm-bday-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 17.162960465997458,
+      "sample_id": "p3-multi-trip-comm-bday-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 21.691594156000065,
+      "sample_id": "p3-multi-trip-comm-bday-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 17.320502080983715,
+      "sample_id": "p3-multi-trip-comm-bday-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T06:51:45.253995+00:00"
+}

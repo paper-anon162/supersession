@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-explicit-cloud-storage-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 20.05981226800941,
+      "sample_id": "p3-explicit-cloud-storage-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 18.139088484022068,
+      "sample_id": "p3-explicit-cloud-storage-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 19.078081005020067,
+      "sample_id": "p3-explicit-cloud-storage-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T00:38:35.272566+00:00"
+}

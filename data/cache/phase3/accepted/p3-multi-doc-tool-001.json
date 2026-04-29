@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-multi-doc-tool-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 18.862725732993567,
+      "sample_id": "p3-multi-doc-tool-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 18.872628679004265,
+      "sample_id": "p3-multi-doc-tool-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 22.93051746801939,
+      "sample_id": "p3-multi-doc-tool-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T00:06:24.820900+00:00"
+}

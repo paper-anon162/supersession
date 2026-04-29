@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-monthly-review-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "cluster J failed: active_evidence has only 0 item(s); cluster J requires \u22652 independent post-old-state evidence items per protocol \u00a710.4. Likely the extractor returned an empty list (deliberate 'cannot comply' signal) or the realized history doesn't carry enough behavioral evidence.",
+      "realize_attempts": 1,
+      "evidence_attempts": 2,
+      "elapsed_s": 36.22604759800015,
+      "sample_id": "p3-drift-monthly-review-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 22.91167658098857,
+      "sample_id": "p3-drift-monthly-review-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 31.623234111000784,
+      "sample_id": "p3-drift-monthly-review-001-hard"
+    }
+  ],
+  "failure_reasons": [
+    "compact: cluster J failed: active_evidence has only 0 item(s); cluster J requires \u22652 independent post-old-state evidence items per protocol \u00a710.4. Likely the extractor returned an empty list (deliberate 'cannot comply' signal) or the realized history doesn't carry enough behavioral evidence."
+  ],
+  "timestamp": "2026-04-27T01:16:39.590134+00:00"
+}

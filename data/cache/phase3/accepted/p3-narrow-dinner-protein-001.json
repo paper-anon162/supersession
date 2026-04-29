@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-narrow-dinner-protein-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 0,
+      "elapsed_s": 47.39606188199832,
+      "sample_id": "p3-narrow-dinner-protein-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 18.906753441988258,
+      "sample_id": "p3-narrow-dinner-protein-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 17.73466398799792,
+      "sample_id": "p3-narrow-dinner-protein-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T00:05:57.826088+00:00"
+}

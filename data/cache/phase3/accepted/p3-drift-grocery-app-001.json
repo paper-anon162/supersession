@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-grocery-app-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "repeated_use",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 38.07898770700558,
+      "sample_id": "p3-drift-grocery-app-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 28.980735287012067,
+      "sample_id": "p3-drift-grocery-app-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 22.306857046001824,
+      "sample_id": "p3-drift-grocery-app-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T00:04:32.918501+00:00"
+}

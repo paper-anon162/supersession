@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-explicit-room-temp-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 16.785146057023667,
+      "sample_id": "p3-explicit-room-temp-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 12.482732230011607,
+      "sample_id": "p3-explicit-room-temp-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 10.43733789701946,
+      "sample_id": "p3-explicit-room-temp-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T04:30:03.844946+00:00"
+}

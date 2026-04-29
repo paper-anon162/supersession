@@ -1,0 +1,35 @@
+{
+  "group_id": "p3-multi-cardio-4v-001",
+  "group_type": "doublet",
+  "horizons": [
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 14.080864121991908,
+      "sample_id": "p3-multi-cardio-4v-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 13.219007543026237,
+      "sample_id": "p3-multi-cardio-4v-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-26T23:38:56.075015+00:00"
+}

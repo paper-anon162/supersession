@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-old-tool-cluster-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 25.63180549797835,
+      "sample_id": "p3-drift-old-tool-cluster-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 26.95776808197843,
+      "sample_id": "p3-drift-old-tool-cluster-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 27.247281240997836,
+      "sample_id": "p3-drift-old-tool-cluster-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T02:23:01.186108+00:00"
+}

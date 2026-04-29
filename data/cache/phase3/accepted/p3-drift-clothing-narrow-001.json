@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-clothing-narrow-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "gradual_narrowing",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 57.84880317997886,
+      "sample_id": "p3-drift-clothing-narrow-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 31.50679698699969,
+      "sample_id": "p3-drift-clothing-narrow-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 19.133194235997507,
+      "sample_id": "p3-drift-clothing-narrow-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T00:14:55.305271+00:00"
+}

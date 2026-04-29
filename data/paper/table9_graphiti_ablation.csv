@@ -1,0 +1,5 @@
+row,overall_vf_or_delta,drift_vf_or_ci,n_overall,n_drift_or_slice
+graphiti,49.5,36.31,994,358
+graphiti_inv_off,47.08,32.68,994,358
+delta_on_minus_off_drift_pp,3.63,"[0.0, 7.54]",358,drift
+delta_on_minus_off_overall_pp,2.41,"[-0.1, 4.93]",994,overall

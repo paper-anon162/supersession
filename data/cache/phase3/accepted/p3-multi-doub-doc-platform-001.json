@@ -1,0 +1,35 @@
+{
+  "group_id": "p3-multi-doub-doc-platform-001",
+  "group_type": "doublet",
+  "horizons": [
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 23.02398263302166,
+      "sample_id": "p3-multi-doub-doc-platform-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 20.101484070008155,
+      "sample_id": "p3-multi-doub-doc-platform-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T04:23:31.430329+00:00"
+}

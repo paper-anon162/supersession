@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-ru-feedback-tool-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "repeated_use",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 4,
+      "evidence_attempts": 1,
+      "elapsed_s": 65.81051628501154,
+      "sample_id": "p3-drift-ru-feedback-tool-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 27.178812209022,
+      "sample_id": "p3-drift-ru-feedback-tool-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 30.100390356994467,
+      "sample_id": "p3-drift-ru-feedback-tool-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T05:06:17.993701+00:00"
+}

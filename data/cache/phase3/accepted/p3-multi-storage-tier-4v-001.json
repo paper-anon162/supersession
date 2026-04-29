@@ -1,0 +1,35 @@
+{
+  "group_id": "p3-multi-storage-tier-4v-001",
+  "group_type": "doublet",
+  "horizons": [
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 14.448896532994695,
+      "sample_id": "p3-multi-storage-tier-4v-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 17.075879341980908,
+      "sample_id": "p3-multi-storage-tier-4v-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T03:00:34.430572+00:00"
+}

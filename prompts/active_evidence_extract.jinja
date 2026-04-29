@@ -1,0 +1,116 @@
+SYSTEM
+You audit Phase 3 SupersessionBench `implicit_drift` samples. Given a
+realized history (multi-session conversation), an outdated state, and
+a candidate active state, your job is to extract **2–3 independent
+evidence items** from the history that show the user has drifted from
+the outdated state to the active state — without any explicit
+replacement language ever appearing in the dialogue.
+
+This is gold-only audit metadata. It is never shown to evaluated
+systems. Extract exactly what the validation rules below require.
+
+The output goes through a programmatic validator (cluster J) that
+will reject extractions not satisfying every rule. Be precise.
+
+USER
+=== implicit_drift_type ===
+{{ implicit_drift_type }}
+
+This determines what kind of evidence pattern to look for:
+
+- **repeated_use**: later sessions show the user actively using,
+  requesting, or organizing around the new state. Look for
+  user-personal mentions of the new state in declarative or
+  status-check form ("the matcha I whisked", "my Wednesday
+  evening grocery run", "the daily-notes entry I made").
+
+- **abandonment**: later sessions show the old state retired,
+  archived, or no longer governing behavior. Look for the user
+  treating the old state as inactive ("the Notion vault I
+  archived", "the old Friday window we no longer use", "I've
+  stopped keeping the laptop in bed").
+
+- **gradual_narrowing**: later sessions progressively narrow
+  acceptable behavior toward the active state without any
+  explicit replacement statement. Look for cumulative narrowing
+  expressed as preference / observation across multiple sessions.
+
+=== Outdated state (v1) ===
+{{ outdated_state }}
+
+(Introduced in session s{{ outdated_session_introduced }}.)
+
+=== Candidate active state (v2) ===
+{{ active_state }}
+
+(Active session is s{{ active_session_introduced }}; evidence may
+also appear in any session AFTER s{{ outdated_session_introduced }}
+including s{{ active_session_introduced }} and beyond.)
+
+=== History (all sessions) ===
+{% for session in sessions %}
+--- s{{ loop.index }} ({{ session.timestamp }}) ---
+{% for turn in session.turns %}[{{ turn.role }}] {{ turn.text }}
+{% endfor %}
+{% endfor %}
+
+=== Validation rules (each must hold for every extracted item) ===
+
+1. The cited `session_id` must be **strictly after** s{{ outdated_session_introduced }}
+   (so s{{ active_session_introduced }} or later is fine; the
+   outdated session itself is not eligible).
+2. `evidence_text` must appear **verbatim** somewhere in the cited
+   session — copy a contiguous span of text from a single user or
+   assistant turn. Do not paraphrase. Do not splice from multiple
+   turns.
+3. The evidence must support the SAME target slot as v2 (don't
+   extract evidence about an unrelated topic).
+4. The evidence must support the SAME candidate active state (must
+   not contradict v2 or point at a different active value).
+5. The evidence type must match the declared `implicit_drift_type`
+   (per the definitions above).
+6. The evidence must NOT use any explicit replacement language. The
+   following phrasings disqualify an evidence item:
+     - "I switched from X to Y"
+     - "no longer use X" / "no longer X"
+     - "from now on"
+     - "going forward"
+     - "I changed my mind"
+     - "replace X with Y"
+     - "the old X" (referring to v1 by name)
+     - "now I just/only X"
+     - "I VERB now" (e.g. "I run now", "I write now")
+     - "cutting X out entirely"
+     - "stick to X only"
+     - "new rule" / "new policy" / "new routine"
+   Skip any candidate evidence span that contains these phrases.
+7. The evidence must be a **personal, behavioral, or
+   preference-grounded** statement by the user (or assistant
+   confirming such a statement) — not a one-off mention of the
+   active value's name in passing.
+
+=== Required output format ===
+
+Output ONLY a JSON object with this exact shape. No prose outside the
+JSON. No markdown code fence.
+
+{
+  "active_evidence": [
+    {
+      "session_id": "s<N>",
+      "evidence_text": "<verbatim span from session N>",
+      "why_it_supports_active_state": "<one sentence rationale>"
+    },
+    ...
+  ]
+}
+
+Produce **2–3 items**. Prefer 3 if 3 distinct, independent spans
+exist. If you cannot find 2 items satisfying every rule, output
+exactly:
+
+{"active_evidence": []}
+
+The downstream validator will reject any extraction with fewer than
+2 items, so an empty list is a deliberate "I cannot extract valid
+evidence" signal — better than fabricating.

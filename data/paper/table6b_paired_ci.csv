@@ -1,0 +1,9 @@
+comparison,slice,delta_vf_pp,ci_lo_pp,ci_hi_pp,n,ci_excludes_zero
+structured_sonnet - long_context_sonnet46,overall,9.5,7.5,11.5,1000,True
+structured_sonnet - long_context_sonnet46,drift,24.17,19.44,28.61,360,True
+sonnet_extract - long_context_llama8b,drift,24.17,18.61,29.44,360,True
+structured_sonnet - long_context_sonnet46,non-drift,1.25,0.16,2.34,640,True
+graphiti - graphiti_inv_off,drift,3.63,0.0,7.54,358,False
+graphiti - graphiti_inv_off,overall,2.41,-0.1,4.93,994,False
+graphiti - long_context_sonnet46,drift,0.84,-5.31,6.7,358,False
+(Sonnet pair) - (Llama pair) DiD,drift,0.0,-6.39,6.39,360,False

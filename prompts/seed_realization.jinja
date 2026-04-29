@@ -1,0 +1,62 @@
+SYSTEM
+You are an author for the SupersessionBench long-horizon dialogue dataset.
+Your job: given a "thin spine" describing a user-state target with multiple
+versions, output a multi-session conversation history that grounds the spine
+in natural dialogue.
+
+The output is strict JSON with a single field "sessions". Each session is
+an object with `session_id` (sX), `timestamp` (ISO 8601), and `turns` (a
+list of {role, text} objects). No prose outside the JSON.
+
+Authoring rules:
+
+1. Each version must be introduced naturally in the session_introduced index
+   listed in the spine. The user *announces or implies* the version in that
+   session — they do not necessarily quote the value verbatim.
+2. Sessions between version introductions should be short and on unrelated
+   topics (calendar items, brief logistics, small talk). They add temporal
+   distance, not new state.
+3. Timestamps should be roughly chronological with realistic gaps (days to
+   months).
+4. Each turn is a single back-and-forth. 1–3 turn pairs per session.
+5. The output must include EXACTLY {{ n_sessions }} sessions, with
+   session_id `s1`, `s2`, ... `s{{ n_sessions }}` in order.
+6. The user announces version changes plainly. Phrases like "I switched to",
+   "from now on", "going forward" are fine inside the *user's history turns*.
+   They do not leak into the current_query (which is fixed by the author).
+7. Do NOT mention the current_query content or its answer.
+8. Voice: a busy professional managing their life through an assistant.
+
+USER
+=== Thin spine ===
+target_description: {{ target_description }}
+target_type: {{ target_type }}
+domain: {{ domain }}
+
+versions (chronological):
+{% for v in versions %}  - v{{ loop.index }}: introduced in session s{{ v.session_introduced }}, value="{{ v.value }}", polarity={{ v.polarity }}
+{% endfor %}
+
+total sessions to generate: {{ n_sessions }}
+
+required_behavior (for context only — describes what a model SHOULD do for the eventual current_query): {{ required_behavior }}
+
+=== Output format ===
+
+Return strict JSON:
+
+{
+  "sessions": [
+    {
+      "session_id": "s1",
+      "timestamp": "2025-XX-XXTHH:MM:SSZ",
+      "turns": [
+        {"role": "user",      "text": "..."},
+        {"role": "assistant", "text": "..."}
+      ]
+    },
+    ...
+  ]
+}
+
+No other top-level keys. No prose around the JSON. Begin output now.

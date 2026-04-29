@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-narrow-pull-investing-002",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 14.241177591989981,
+      "sample_id": "p3-narrow-pull-investing-002-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 17.881871563993627,
+      "sample_id": "p3-narrow-pull-investing-002-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 14.018720681982813,
+      "sample_id": "p3-narrow-pull-investing-002-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T07:38:02.429104+00:00"
+}

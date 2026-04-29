@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-aban-coffee-meet-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: gold-consistency gate failed: cluster C: user-role coverage of active value is 40% (history-wide 50%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.; cluster E: active value contains chunk(s) with zero history overlap: ['never resume the practice']. The gold over-specifies an attribute the user never establishes.; cluster F: active session user-role text opens with an observational / status-check speech act and contains no declarative phrase ('going forward', 'from now on', 'new rule', etc.). A blind reader cannot reliably infer that the user has shifted preference rather than merely noticed a one-off event.; cluster G: active session user-role text contains explicit-change phrasing 'the old recurring' that contradicts implicit_drift form. The active state should appear as ambient fact, not a stated change.; cluster H: v2-distinguishing chunk(s) ['never resume the practice'] have no token overlap with USER turns of the active session (s2). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency.",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 71.0049251060118,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 5,
+      "evidence_attempts": 1,
+      "elapsed_s": 84.22630104699056,
+      "sample_id": "p3-drift-aban-coffee-meet-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 44.75424165700679,
+      "sample_id": "p3-drift-aban-coffee-meet-001-hard"
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: gold-consistency gate failed: cluster C: user-role coverage of active value is 40% (history-wide 50%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.; cluster E: active value contains chunk(s) with zero history overlap: ['never resume the practice']. The gold over-specifies an attribute the user never establishes.; cluster F: active session user-role text opens with an observational / status-check speech act and contains no declarative phrase ('going forward', 'from now on', 'new rule', etc.). A blind reader cannot reliably infer that the user has shifted preference rather than merely noticed a one-off event.; cluster G: active session user-role text contains explicit-change phrasing 'the old recurring' that contradicts implicit_drift form. The active state should appear as ambient fact, not a stated change.; cluster H: v2-distinguishing chunk(s) ['never resume the practice'] have no token overlap with USER turns of the active session (s2). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency."
+  ],
+  "timestamp": "2026-04-27T08:17:37.320390+00:00"
+}

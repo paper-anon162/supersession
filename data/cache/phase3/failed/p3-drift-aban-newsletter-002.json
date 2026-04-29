@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-aban-newsletter-002",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: active session contains explicit-update phrase \"i'm done with\"; must be implicit (audit P1)",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 54.58336640801281,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 49.30225750399404,
+      "sample_id": "p3-drift-aban-newsletter-002-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 34.27704997398541,
+      "sample_id": "p3-drift-aban-newsletter-002-hard"
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: active session contains explicit-update phrase \"i'm done with\"; must be implicit (audit P1)"
+  ],
+  "timestamp": "2026-04-27T08:44:07.142788+00:00"
+}

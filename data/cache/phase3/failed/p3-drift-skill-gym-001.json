@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-skill-gym-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 36.477070116001414,
+      "sample_id": "p3-drift-skill-gym-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": false,
+      "failure_reason": "cluster J failed: active_evidence has only 0 item(s); cluster J requires \u22652 independent post-old-state evidence items per protocol \u00a710.4. Likely the extractor returned an empty list (deliberate 'cannot comply' signal) or the realized history doesn't carry enough behavioral evidence.",
+      "realize_attempts": 1,
+      "evidence_attempts": 2,
+      "elapsed_s": 34.62852306800778,
+      "sample_id": "p3-drift-skill-gym-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 20.4949030400021,
+      "sample_id": "p3-drift-skill-gym-001-hard"
+    }
+  ],
+  "failure_reasons": [
+    "standard: cluster J failed: active_evidence has only 0 item(s); cluster J requires \u22652 independent post-old-state evidence items per protocol \u00a710.4. Likely the extractor returned an empty list (deliberate 'cannot comply' signal) or the realized history doesn't carry enough behavioral evidence."
+  ],
+  "timestamp": "2026-04-27T02:24:05.586875+00:00"
+}

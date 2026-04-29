@@ -1,0 +1,6 @@
+system,n_drift_paired,opus_drift_vf,mistral_drift_vf,cohens_kappa,raw_agreement_pct
+structured_sonnet,358,59.78,62.57,0.73,87.2
+long_context_sonnet46,360,35.28,39.44,0.745,88.1
+long_context_llama8b,360,21.67,24.17,0.709,89.7
+naive_rag,359,20.61,21.73,0.716,90.5
+sonnet_extract,358,45.81,43.58,0.684,84.4

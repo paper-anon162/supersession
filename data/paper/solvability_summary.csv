@@ -1,0 +1,6 @@
+slice,n,majority_solvability_pct,unanimous_correct_pct,problematic_sample_pct,pairwise_mean_kappa
+overall,270,98.1,74.4,1.9,0.688
+implicit_drift,180,97.8,68.9,2.2,
+explicit_replacement,30,100.0,90.0,0.0,
+narrowing,30,100.0,83.3,0.0,
+multi_version,30,96.7,83.3,3.3,

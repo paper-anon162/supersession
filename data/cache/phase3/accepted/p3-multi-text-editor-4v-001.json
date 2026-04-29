@@ -1,0 +1,35 @@
+{
+  "group_id": "p3-multi-text-editor-4v-001",
+  "group_type": "doublet",
+  "horizons": [
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 18.546536463021766,
+      "sample_id": "p3-multi-text-editor-4v-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 21.800041146023432,
+      "sample_id": "p3-multi-text-editor-4v-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T08:49:06.632863+00:00"
+}

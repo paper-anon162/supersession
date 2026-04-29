@@ -1,0 +1,181 @@
+SYSTEM
+You author short conversation snippets for SupersessionBench. The full
+history will be assembled by code: most sessions are real distractor
+sessions from another corpus. Your job is to author **only the {{ n_events }}
+sessions where the user state on the target changes**.
+
+Output strict JSON. No prose outside the JSON.
+
+Authoring rules:
+
+1. Each event session should be 1–3 turn pairs (2–6 turns total),
+   short and focused on the relevant state change.
+2. The user's voice is a busy professional managing life via an assistant.
+3. Do NOT mention or quote the current_query (`{{ current_query }}`).
+4. Do NOT introduce facts unrelated to the target.
+5. Each event session is labeled with which version it introduces:
+   - "v1": original state of the target
+   - "v2": superseding state
+   - "active": the final active version (= v3 if multi-step / reverted, else = v2)
+
+6. **Active value chunk coverage (HARD constraint, applies to ALL
+   modes including drift / narrow / multi / explicit).**
+
+   Split the active value's value string into "distinguishing chunks":
+     - separators are `,`, `;`, ` and `, ` with `, ` plus `, ` — ` (em-dash),
+       and ` - ` (en-dash with surrounding spaces)
+     - skip everything inside parentheses (parentheticals are usually
+       examples, not separately-required attributes)
+     - skip negation chunks that start with "no ", "not ", "without ",
+       "none of ", "skip "
+
+   Example: active value = "Vietnamese — pho or bun cha" → chunks
+   ["Vietnamese", "pho or bun cha"]. The "pho or bun cha" chunk has
+   internal optionality on "or", but the chunk as a whole must surface
+   at least one of its content tokens (so "pho" OR "bun cha" needs to
+   appear).
+
+   Example: active value = "read one chapter per meeting and discuss
+   in real time" → chunks ["read one chapter per meeting", "discuss
+   in real time"]. BOTH chunks must surface in the active session.
+
+   The text of the active event session (user and assistant turns
+   combined) must contain at least one content token from EVERY
+   non-negation chunk of the active value. Missing even one chunk's
+   evidence triggers automatic gate failure (cluster E in the
+   gold-vs-history scanner). After writing the active session,
+   re-check by mentally splitting the gold value into chunks and
+   ticking each one off against the dialogue.
+
+   **Drift-strict variant (cluster H, fires only on implicit_drift):**
+   For implicit_drift mode, every chunk that carries at least one
+   v2-DISTINGUISHING token (i.e. a token present in the active value
+   but NOT in any outdated value) must surface in a USER TURN of the
+   active session — assistant turns and other sessions don't count.
+   Carry-over chunks (whose tokens appear in v1 too) are exempt; only
+   the chunks that encode the actual change need user-turn evidence.
+   Worked example: active = "Obsidian with the daily-notes plugin and
+   wiki-style backlinks", v1 = "Apple Notes default app, no folders".
+   Distinguishing chunk = "Obsidian"; user turns must contain the
+   token "Obsidian". An assistant-only mention ("your Obsidian vault")
+   does NOT satisfy the gate.
+
+{% if implicit_drift %}
+7. **Implicit drift mode is ON.** This is a HARD constraint, not a tone
+   preference. The goal: the active state must appear as *ambient
+   fact* in user turns — never as the user's *request*. A reader
+   should need cumulative context across sessions to infer the active
+   state; reading the active event session alone should not reveal it.
+
+   Concrete rules for the *active* event session only:
+
+   a. **Forbidden:** any explicit announcement of the change. The
+      following phrasings ALL violate implicit_drift form (audit
+      cluster G fires on each):
+        - "I switched to X" / "I'm switching to Y"
+        - "from now on" / "going forward"
+        - "I changed my mind"
+        - **"the old X"** (any reference to the prior version, e.g.
+          "the old format", "the old hedged style")
+        - **"now I just/only/always X"** (e.g. "now I just keep it
+          plain prose")
+        - **"I VERB now"** for a present-tense action verb (e.g.
+          "I run now", "the rounds I run now", "I write now")
+        - **"cutting X out (of Y) entirely"** / **"I've been Xing ...
+          entirely"** (explicit elimination phrasing)
+        - **"stick to X only"** (narrowing announcement)
+        - **"new rule / policy / routine / standard"**
+      Audit cluster G regex-checks the active session's user turns for
+      these phrases. Hits on any one fail the gate.
+   b. **Forbidden:** the user must not REQUEST anything whose subject
+      names the new state. Asking "What's the Sweetgreen delivery
+      window?" when active = "daily Sweetgreen delivery" is
+      FORBIDDEN — the request itself names the active value.
+   c. **Required:** the user's *request* must be tangential — about
+      a logistics detail, a status check, or an unrelated follow-up
+      ("did the order come on time?", "send the receipt to finance",
+      "remind me when the slot starts").
+   c'. **Required:** EVERY distinguishing attribute of the active
+      value MUST appear at least once in a user turn of the active
+      session, as an ambient fact about the *user's own routine*
+      (not someone else's). If the active value is "monthly 25-minute
+      skip-level over coffee", BOTH "monthly" (or a clear cadence
+      token like "this month's", "every four weeks") AND "25-minute"
+      (or "tight on time", "half-hour") AND "coffee" must surface in
+      the user's turns. Missing even one distinguishing attribute
+      means the active state is not inferable from the active session
+      alone — REWRITE. (Codex audit P0, 2026-04-25.)
+   c''. **Required:** the ambient mention must place the USER as the
+      one engaging in the active behavior, not a third party. WRONG
+      (these were marked ambiguous in the 2026-04-25 audit and
+      excluded from headline VF):
+        - "Did the Loom from Priya come through?" — Priya is the one
+          using Loom; the user is just receiving it. Doesn't establish
+          that the user's own outgoing comms are now Loom-style.
+        - "The paragraph summary Marcus sent back was useful" —
+          Marcus produced the paragraph summary; the session does not
+          establish that the user now PREFERS paragraph summaries as
+          a feedback format.
+      RIGHT: "the Sweetgreen order I had this morning was late again",
+      "my 25-minute walk with Priya before lunch", "the action items
+      I sent over after our call". The active value's behavior must
+      be something the user themselves owns or routinely does.
+   d. **Forbidden:** describing the active state's defining attributes
+      in such detail that the user announces them ("I switched to a
+      25-minute monthly cadence"). The distinguishing tokens may
+      appear, but as ambient facts ("the 25-minute monthly catch-up I
+      have with Priya"), never as a stated change.
+   e. **Required test:** after writing the active session, re-read
+      ONLY the user turns. (i) Confirm every distinguishing attribute
+      of the active value surfaces somewhere — if any is missing,
+      rewrite. (ii) Confirm the user, not a third party, is the agent
+      of the active behavior. (iii) Confirm no single sentence
+      announces the change. If you can't satisfy all three, the
+      session is not implicit-drift-quality — start over.
+
+   The v1 (and v2 if multi-step) event sessions MAY explicitly state
+   the user's preference — only the active session is implicit.
+{% else %}
+7. The user announces or naturally implies each version change. Phrases
+   like "I switched to", "from now on", "going forward" are fine inside
+   user turns. Rule 6 still applies: the active session must contain
+   at least one content token from every non-negation chunk of the
+   active value.
+{% endif %}
+{% if narrowing %}
+8. **Narrowing/restrictive active mode is ON.** The active version excludes
+   something the previous version included. The intermediate (or v1) version
+   should partial-overlap with the active version — share a feature with it
+   while *also* doing the thing the active version excludes. Make this trap
+   tempting (e.g., active = "Socratic questions only"; trap = "Socratic +
+   positive opener").
+{% endif %}
+
+USER
+=== Target ===
+target_description: {{ target_description }}
+target_type: {{ target_type }}
+domain: {{ domain }}
+
+=== Versions to author event sessions for ===
+{% for ev in events %}- event {{ loop.index }}: label={{ ev.label }}, value="{{ ev.value }}", polarity={{ ev.polarity }}
+{% endfor %}
+
+=== current_query (for context only — do NOT generate) ===
+{{ current_query }}
+
+=== Output schema ===
+{
+  "event_sessions": [
+    {
+      "label": "v1" | "v2" | "active",
+      "turns": [
+        {"role": "user" | "assistant", "text": "..."}
+      ]
+    },
+    ...
+  ]
+}
+
+Produce exactly {{ n_events }} event sessions in the same order as the
+events listed above. Output ONLY the JSON object.

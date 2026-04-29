@@ -1,0 +1,49 @@
+{
+  "group_id": "p3-drift-staff-meeting-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: event-session parse error: expected 2 event sessions, got 3",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 12.356622729974333,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": false,
+      "failure_reason": "realize failed: event-session parse error: expected 2 event sessions, got 3",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 11.102178500004811,
+      "sample_id": null
+    },
+    {
+      "horizon": "hard",
+      "accepted": false,
+      "failure_reason": "realize failed: event-session parse error: expected 2 event sessions, got 3",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 10.537768912006868,
+      "sample_id": null
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: event-session parse error: expected 2 event sessions, got 3",
+    "standard: realize failed: event-session parse error: expected 2 event sessions, got 3",
+    "hard: realize failed: event-session parse error: expected 2 event sessions, got 3"
+  ],
+  "timestamp": "2026-04-27T08:46:52.726593+00:00"
+}

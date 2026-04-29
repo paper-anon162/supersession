@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-newsletter-cadence-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "repeated_use",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: gold-consistency gate failed: cluster A: only 40% of active.value stems appear in history (threshold \u226550%); missing: ['commute', 'monday', 'train']; cluster C: user-role coverage of active value is 20% (history-wide 40%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 75.76644229301019,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 21.516905460011913,
+      "sample_id": "p3-drift-newsletter-cadence-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 18.425504653016105,
+      "sample_id": "p3-drift-newsletter-cadence-001-hard"
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: gold-consistency gate failed: cluster A: only 40% of active.value stems appear in history (threshold \u226550%); missing: ['commute', 'monday', 'train']; cluster C: user-role coverage of active value is 20% (history-wide 40%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency."
+  ],
+  "timestamp": "2026-04-27T00:15:02.513889+00:00"
+}

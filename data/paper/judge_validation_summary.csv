@@ -1,0 +1,6 @@
+slice,n,cohens_kappa_judge_vs_human,raw_agreement_pct,fp_rate_pct,fn_rate_pct,fleiss_kappa_3_annotators
+overall,150,0.821,91.3,0.0,13.5,0.737
+implicit_drift,90,0.775,88.9,,,
+explicit_replacement,20,1.0,100.0,,,
+multi_version,20,0.583,85.0,,,
+narrowing,20,1.0,100.0,,,

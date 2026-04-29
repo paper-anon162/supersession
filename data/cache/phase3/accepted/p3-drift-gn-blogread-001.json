@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-gn-blogread-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "gradual_narrowing",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 58.05758952899487,
+      "sample_id": "p3-drift-gn-blogread-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 47.16653585599852,
+      "sample_id": "p3-drift-gn-blogread-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 27.51787711799261,
+      "sample_id": "p3-drift-gn-blogread-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T09:10:34.341039+00:00"
+}

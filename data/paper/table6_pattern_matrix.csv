@@ -1,0 +1,12 @@
+system,n,overall_vf,drift_vf,explicit_vf,multi_vf,narrow_vf
+structured_sonnet,1000,84.7,59.44,100,98.93,98.1
+long_context_sonnet46,1000,75.2,35.28,96.67,98.21,97.62
+long_context_mistral,1000,72.3,33.33,93.33,94.64,94.29
+recency_wrapper,1000,67.6,48.61,79.33,85.71,67.62
+sonnet_extract,1000,66.5,45.83,79.33,85.36,67.62
+active_state_wrapper,1000,66.0,45.83,79.33,85.36,65.24
+recency_rag,1000,51.7,25.83,66.0,67.14,65.24
+long_context_llama8b,1000,49.6,21.67,67.33,66.43,62.38
+graphiti,994,49.5,36.31,61.07,63.44,45.19
+naive_rag,1000,48.6,20.56,62.0,60.71,70.95
+graphiti_inv_off,994,47.08,32.68,61.74,62.01,41.35

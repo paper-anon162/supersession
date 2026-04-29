@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-speaking-prep-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "repeated_use",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 58.54718427400803,
+      "sample_id": "p3-drift-speaking-prep-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 4,
+      "evidence_attempts": 1,
+      "elapsed_s": 64.52689271001145,
+      "sample_id": "p3-drift-speaking-prep-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 4,
+      "evidence_attempts": 1,
+      "elapsed_s": 54.77384575200267,
+      "sample_id": "p3-drift-speaking-prep-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T01:33:15.537603+00:00"
+}

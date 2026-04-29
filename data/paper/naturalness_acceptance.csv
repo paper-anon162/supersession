@@ -1,0 +1,5 @@
+threshold,required,got,status
+per_dim_mean_ge_3_5,all 4 dims,all 4 >= 3.66,PASS
+per_cell_mean_ge_3_0,all 32 means,0 below 3.0,PASS
+icc_2_1_ge_0_5,all 4 dims,"D1 0.615, others 0.45-0.50",marginal
+pct_cells_dim_below_3_0_le_10pct,<= 3.2 of 32,0/32 = 0.0%,PASS

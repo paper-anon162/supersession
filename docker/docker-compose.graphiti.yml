@@ -1,0 +1,37 @@
+# FalkorDB for the Graphiti baseline (data_plan §10.2 v1.3.7).
+#
+# FalkorDB is a Redis-protocol graph DB; Graphiti's FalkorDriver speaks
+# to it on the standard Redis port (6379). The image bundles a UI on
+# port 3000 — exposed too so a developer can visually inspect the graph
+# state of any group_id while debugging ingest / retrieval.
+#
+# Bring-up:
+#   docker compose -f docker/docker-compose.graphiti.yml up -d
+#   redis-cli -p 6379 ping     # → PONG
+#
+# Tear-down (preserve data volume):
+#   docker compose -f docker/docker-compose.graphiti.yml down
+#
+# Tear-down + wipe data:
+#   docker compose -f docker/docker-compose.graphiti.yml down -v
+
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: ssbench-falkordb
+    ports:
+      - "6379:6379"   # graph traffic (FalkorDriver)
+      - "3000:3000"   # FalkorDB Browser UI (optional)
+    volumes:
+      - graphiti_falkordb_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  graphiti_falkordb_data:
+    name: ssbench_graphiti_falkordb_data

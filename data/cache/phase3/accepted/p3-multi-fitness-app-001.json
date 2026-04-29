@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-multi-fitness-app-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 14.254931469011353,
+      "sample_id": "p3-multi-fitness-app-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 12.252667838998605,
+      "sample_id": "p3-multi-fitness-app-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 14.856655465991935,
+      "sample_id": "p3-multi-fitness-app-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-26T23:56:51.590449+00:00"
+}

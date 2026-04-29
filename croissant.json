@@ -1,0 +1,659 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "wd": "https://www.wikidata.org/wiki/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "sc:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "SupersessionBench",
+  "description": "SupersessionBench is a behavioral-supersession benchmark for long-term LLM agents. It contains 1,000 multi-session user-agent histories organized into 350 matched groups across compact / standard / hard horizons and four supersession patterns (implicit drift, explicit replacement, multi-version, narrowing). Each core sample contains competing versions of the same user-state target so that a system must determine which remembered version currently governs behavior. The release ships three views of the same sample IDs (public, gold, full), a 350-group matched manifest, all 11 systems x 1000 cached responses + 2 diagnostics, ~13K Opus 4.6 LLM-judge verdicts, 1,870 Mistral cross-judge verdicts, and 24 paper-table CSVs that back every figure and table in the SupersessionBench paper (NeurIPS 2026, Track on Evaluations and Datasets).",
+  "url": "https://huggingface.co/datasets/muse0123/SupersessionBench",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "version": "1.0.0",
+  "datePublished": "2026-04-29",
+  "creator": {
+    "@type": "sc:Organization",
+    "name": "Anonymous (NeurIPS 2026 double-blind submission)"
+  },
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "Anonymous (NeurIPS 2026 double-blind submission)"
+  },
+  "keywords": [
+    "long-term memory",
+    "LLM agents",
+    "benchmark",
+    "behavioral supersession",
+    "implicit drift",
+    "preference update",
+    "evaluation"
+  ],
+  "citeAs": "@inproceedings{supersessionbench,\n  title     = {Updated, Not Just Remembered: Behavioral Supersession in Long-Term LLM Agents},\n  author    = {Anonymous},\n  booktitle = {The 40th Conference on Neural Information Processing Systems (NeurIPS), Track on Evaluations and Datasets},\n  year      = {2026}\n}",
+  "rai:dataCollection": "Hand-authored semantic spines specifying target / outdated / current versions / required behavior / invalid behavior / violation predicate, then realized into multi-session histories via AWS Bedrock Sonnet 4.6 conditioned on naturalistic distractor sessions sampled from upstream long-conversation corpora (LongMemEval _s variant by default, LoCoMo as alternative). Authoring spans 2025-Q4 through 2026-Q1.",
+  "rai:dataAnnotationProtocol": "Three human-validation studies on graduate-level ML-researcher annotators (3 annotators each): (i) judge validation (N=150 sample-response pairs, force-choice binary VF), (ii) active-state identifiability / solvability (N=270, blind candidate-state selection), (iii) naturalness (N=40, 5-dimension scale). Per-task honorarium USD 300 / annotator for ~20 hours (~USD 15/hr). Inter-annotator agreement and adjudication rules in Appendices E-F.",
+  "rai:dataLimitations": "(1) Histories are synthetic / semi-synthetic; real user traces may be noisier. (2) Scope is single-user, user-originated supersession; multi-user conflict, organization-level policy, and conditionally scoped policies (e.g., 'X on weekdays, Y on weekends') are out of scope. (3) The benchmark is English-only. (4) Version Fidelity is judged at the response level and cannot uniquely identify internal failure mechanisms. (5) The system lineup is representative, not exhaustive.",
+  "rai:dataBiases": "Distractor sessions inherit demographic and topical distributions of the upstream LongMemEval / LoCoMo corpora. Hand-authored spines reflect author choices about plausible user-state updates and may underrepresent culturally specific update modes. Honorarium-based annotation may attract a self-selected demographic of graduate ML researchers; 3-annotator panels limit detection of fine-grained sociolect effects.",
+  "rai:personalSensitiveInformation": "None. All histories are synthetic or semi-synthetic with LLM-generated participant names, places, and identifying details. The dataset contains no real user PII. Annotation studies do not collect personal information from annotators beyond consent records (retained privately by authors, not redistributed).",
+  "rai:intendedUse": "Evaluation of long-term LLM agents on behavioral authority resolution: whether a response is governed by the user's current valid state vs. an outdated remembered version. Suitable as a reproducible benchmark for memory architectures (long-context, RAG, structured wrappers, temporal graphs). Not a safety / adversarial / jailbreak benchmark; not a recall / factuality benchmark.",
+  "rai:dataUseCases": "The dataset measures behavioral supersession: whether AI agents act on a user's current valid state when conflicting outdated versions remain in conversation history. Validated use cases (with supporting evidence in the SupersessionBench paper, NeurIPS 2026): (i) zero-shot evaluation of long-term-memory architectures (long-context, RAG, structured wrappers, temporal-graph memory); (ii) diagnostic probing of retrieval vs. extraction quality (recall--VF gap analysis); (iii) ablation studies on temporal-validity invalidation; (iv) matched-backbone architecture x capability identification via 2x2 difference-in-differences design. Not validated for: clinical or high-stakes deployment, training data for production systems, evaluation of adversarial robustness, or cross-lingual evaluation (English-only).",
+  "rai:dataSocialImpact": "Positive impact: SupersessionBench enables rigorous evaluation of a long-term agent reliability dimension (behavioral authority resolution) that prior memory benchmarks do not isolate, supporting safer deployment of agents that act on users' behalf in scheduling, recommendation, communication, and workflow contexts. Risks: misuse for optimizing manipulative personalization, covert behavioral targeting, or systems that exploit user-state inference for non-consensual purposes. Mitigations: (1) released under CC BY-NC 4.0 (non-commercial), restricting commercial application without explicit author authorization; (2) documentation explicitly discourages safety / adversarial use; (3) dataset contains no real user PII; (4) released as evaluation-only (no training split) to discourage memorization-based deployment.",
+  "rai:dataReleaseMaintenancePlan": "Hosted on the anonymous GitHub repository during NeurIPS 2026 review (paper-anon162/supersession). Camera-ready release will mirror to a permanent host (Zenodo with DOI; Hugging Face Datasets recommended). v1.0 protocol is locked for cross-paper comparability; bug-fix-only revisions thereafter; major expansions release under a new dataset name.",
+  "rai:annotationsPerItem": "3 annotators per item across all three studies (judge validation, solvability, naturalness), with majority adjudication and pre-registered acceptance thresholds.",
+  "rai:hasSyntheticData": true,
+  "rai:syntheticDataDescription": "All multi-session user-agent histories are LLM-realized (AWS Bedrock Sonnet 4.6) from hand-authored semantic spines. Distractor sessions are sampled from naturalistic upstream corpora (LongMemEval, LoCoMo) and fit to horizon token budgets. Generation is conditioned on the spine's target / outdated / current state schema and an active-evidence-grounding constraint for implicit-drift samples. Validation gauntlet (leakage filters, ambiguity checks, blind human active-state identifiability at 98.1%, naturalness at >=3.5/5 across 4 dimensions) accepts only outputs meeting pre-registered thresholds. Seeds and pipeline code are released under MIT.",
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://github.com/xiaowu0162/LongMemEval",
+      "prov:label": "LongMemEval",
+      "description": "Long-term conversational memory benchmark. The _s variant supplies the default distractor session pool. SupersessionBench inherits no schema constraints from LongMemEval beyond using its sessions as naturalistic noise.",
+      "sc:license": "https://opensource.org/license/MIT",
+      "prov:wasAttributedTo": {
+        "@type": "prov:Agent",
+        "prov:label": "Wu et al. (LongMemEval authors)",
+        "url": "https://github.com/xiaowu0162/LongMemEval"
+      }
+    },
+    {
+      "@id": "https://github.com/snap-research/LoCoMo",
+      "prov:label": "LoCoMo",
+      "description": "Very long-term conversational memory benchmark; alternative distractor source. SupersessionBench adopts CC BY-NC 4.0 to match this (most restrictive) upstream license, ensuring compatibility for derivative redistribution.",
+      "sc:license": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "prov:wasAttributedTo": {
+        "@type": "prov:Agent",
+        "prov:label": "Maharana et al. / Snap Research (LoCoMo authors)",
+        "url": "https://github.com/snap-research/LoCoMo"
+      }
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "wd:Q4929239"
+      },
+      "prov:label": "Data Collection",
+      "prov:atTime": "2025-10-01/2026-01-31",
+      "description": "Hand-authoring of 350 semantic spines specifying target / outdated / current versions / required behavior / invalid behavior / violation predicate. Authoring DSL is Python (seeds/phase3/_batch_*.py). No crowdworkers; no LLM was used for spine authoring.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "prov:label": "Paper authors (anonymized for NeurIPS 2026 double-blind review)"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "wd:Q56616254"
+      },
+      "prov:label": "Data Preprocessing (LLM realization + validation gauntlet)",
+      "prov:atTime": "2026-01-01/2026-03-31",
+      "description": "LLM realization of multi-session histories conditioned on spine + distractor sessions, then an automated validation gauntlet covering lexical leakage, structural leakage, explicit update-relation leakage, ambiguity, active-evidence grounding (for implicit-drift samples), and naturalness pre-screening. Failed candidates are dropped before manifest selection. The locked manifest selects 350 of 442 validated candidate groups (79.2% selection rate) under pre-registered quotas.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "AWS Bedrock Sonnet 4.6 (claude-sonnet-4-6, deterministic decoding, temperature=0)",
+          "url": "https://aws.amazon.com/bedrock/"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "SupersessionBench validation pipeline (deterministic Python, MIT-licensed)",
+          "url": "https://github.com/paper-anon162/supersession/tree/master/pipeline"
+        },
+        {
+          "@type": "prov:Agent",
+          "prov:label": "Paper authors (anonymized for NeurIPS 2026 double-blind review)"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "wd:Q109719325"
+      },
+      "prov:label": "Data Annotation (three human-validation studies)",
+      "prov:atTime": "2026-02-01/2026-05-02",
+      "description": "Three independent human-validation studies, each with a 3-annotator panel and pre-registered acceptance thresholds: (i) judge validation, paired LLM-judge x human ratings, N=150 sample-response pairs; (ii) active-state identifiability (solvability), blind candidate-state selection, N=270 samples; (iii) naturalness, 5-dimension Likert ratings, N=40 samples. Self-reviewed protocol against U.S. Common Rule minimal-risk exempt criteria (45 CFR Section 46.104) and the NeurIPS Code of Ethics; informed consent via email reply. Compensation: USD 300 gift card per annotator for ~20 hours of work (effective rate ~USD 15/hr, above U.S. federal minimum wage of USD 7.25/hr). No commercial crowdsourcing platform; no LLM pre-annotation.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "prov:label": "Graduate-level ML researchers (3-annotator panel per study), recruited through the authors' network excluding paper authors and direct collaborators"
+        },
+        {
+          "@type": "prov:Agent",
+          "prov:label": "Paper authors (study design, adjudication; anonymized for NeurIPS 2026 double-blind review)"
+        }
+      ]
+    }
+  ],
+  "isLiveDataset": false,
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "samples-public",
+      "name": "dataset/realized_phase3_main_public.jsonl",
+      "description": "1,000 system-facing samples (public fields only: sample_id, history, current_query, sample_type, recall_query). Loaded by systems-under-test.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/dataset/realized_phase3_main_public.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "c89dd68793b776a4bfd6e132b6e7d0c5db1fd4be4e20ee5e0bfbf281eba03068"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "samples-gold",
+      "name": "dataset/realized_phase3_main_gold.jsonl",
+      "description": "Gold metadata for the same 1,000 sample IDs (judge-only). Contains target versions, active state, outdated states, violation predicate, semantic spine, target type, supersession pattern, horizon, domain, construction metadata. Public-gold separation is enforced at the loader level.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/dataset/realized_phase3_main_gold.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "107c8dba165cf828e433d3498dad89e14c71b8a9b7e0789ec51ef4094671202a"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "samples-full",
+      "name": "dataset/realized_phase3_main_full.jsonl",
+      "description": "Full audit view (public + gold merged into one record). Convenience file for analysis; not used by systems-under-test.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/dataset/realized_phase3_main_full.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "19b7e1da29dc8d390e1fe0a9780e4ef682719787a5c5bf4a9929f8ffd78b6a96"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "manifest-main",
+      "name": "phase3_main.json",
+      "description": "Locked manifest of 350 matched groups (300 triples + 50 doublets) used for paired-bootstrap analysis. Includes name, version, selection_rule, notes, and groups array.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/manifests/phase3_main.json",
+      "encodingFormat": "application/json",
+      "sha256": "1453db46dfc540dd998c9ff463f5659dda6cf90189b73d19f0c9f9c53765fb81"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "verdicts-opus",
+      "name": "verdicts/phase3_xsystem_opus_verdicts.jsonl",
+      "description": "Opus 4.6 LLM-judge verdicts for the 11 evaluated systems plus diagnostics. ~13K rows; primary judge.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/verdicts/phase3_xsystem_opus_verdicts.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "97d471f294445dc054edcf9f0af941a3fdf70e5f0ab03f23a7bd6b586a72e116"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "verdicts-mistral",
+      "name": "verdicts/phase3_xjudge_mistral_verdicts.jsonl",
+      "description": "Mistral Large 3 cross-judge verdicts (1,870 paired re-judges) used for §xjudge calibration. Spearman rho = 1.000 with Opus on the 5-system drift ranking; per-system Cohen's kappa 0.684-0.745.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/verdicts/phase3_xjudge_mistral_verdicts.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "61f374f61c6f4130afe1b5e0f5794a32df639325b00a9071e01e3a953558a7f9"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "verdicts-mistral-sonnet-extract-drift",
+      "name": "verdicts/phase3_xjudge_mistral_sonnet_extract_drift.jsonl",
+      "description": "Mistral Large 3 cross-judge gap-fill shard for the sonnet_extract system on drift cases (343 rows). Combined with verdicts-mistral by build_paper_data.py to compute Opus / Mistral cross-judge agreement on the matched-backbone Llama / Sonnet pair.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/verdicts/phase3_xjudge_mistral_sonnet_extract_drift.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "cffe43ee7e73c87638ccbdd4db4b405e82d5e57702cfeeab7a1958cb7cdd9649"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "verdicts-judge-validation-mistral",
+      "name": "verdicts/phase3_judge_validation_mistral_verdicts.jsonl",
+      "description": "Mistral Large 3 verdicts on the 150-pair judge-validation pool, used in Appendix F to compute Opus / human / Mistral three-way agreement and Mistral-vs-human kappa.",
+      "contentUrl": "https://huggingface.co/datasets/muse0123/SupersessionBench/resolve/main/data/verdicts/phase3_judge_validation_mistral_verdicts.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "beec3f7d6b3f984fd5889deb5f2df4e09a3f067ad974c311b147fb729639ed54"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "system-responses",
+      "name": "system_responses",
+      "description": "Cached model responses for all 11 evaluated systems plus 2 diagnostics, one JSONL per system. Sufficient to reproduce paper-headline numbers without API calls.",
+      "encodingFormat": "application/jsonlines",
+      "includes": "data/responses/phase3_*_responses.jsonl"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "vendor-extension-verdicts",
+      "name": "vendor_extension_verdicts",
+      "description": "Vendor-extension verdict shards: Gemini 2.5 Pro, GPT-5.4 (medium reasoning, v3 canonical), and the structured GPT-5.4 v3 shard used for the architecture x backbone matrix (Figure 2 in the paper).",
+      "encodingFormat": "application/jsonlines",
+      "includes": "data/verdicts/phase3_xsystem_opus_verdicts_*.jsonl"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "paper-csvs",
+      "name": "paper_table_csvs",
+      "description": "24 standalone CSVs backing every paper table and figure, plus an index.md mapping artefact -> CSV. Generated deterministically by scripts/build_paper_data.py from cached verdicts.",
+      "encodingFormat": "text/csv",
+      "includes": "data/paper/*.csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "samples-public-records",
+      "name": "samples_public_records",
+      "description": "System-facing fields per sample (public split).",
+      "key": {
+        "@id": "samples-public-records/sample_id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "samples-public-records/sample_id",
+          "dataType": "sc:Text",
+          "description": "Stable sample identifier (e.g. p3-drift-grocery-app-001-compact).",
+          "source": {
+            "fileObject": {
+              "@id": "samples-public"
+            },
+            "extract": {
+              "column": "sample_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples-public-records/history",
+          "dataType": "sc:Text",
+          "description": "Multi-session user-agent conversation history (concatenated turns or structured list).",
+          "source": {
+            "fileObject": {
+              "@id": "samples-public"
+            },
+            "extract": {
+              "column": "history"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples-public-records/current_query",
+          "dataType": "sc:Text",
+          "description": "The current user query that the system must answer; does not lexically reveal the active version.",
+          "source": {
+            "fileObject": {
+              "@id": "samples-public"
+            },
+            "extract": {
+              "column": "current_query"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples-public-records/sample_type",
+          "dataType": "sc:Text",
+          "description": "Sample category (core supersession sample vs. diagnostic).",
+          "source": {
+            "fileObject": {
+              "@id": "samples-public"
+            },
+            "extract": {
+              "column": "sample_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples-public-records/recall_query",
+          "dataType": "sc:Text",
+          "description": "Optional companion query used for the recall-only diagnostic.",
+          "source": {
+            "fileObject": {
+              "@id": "samples-public"
+            },
+            "extract": {
+              "column": "recall_query"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "samples-gold-records",
+      "name": "samples_gold_records",
+      "description": "Gold metadata fields (judge-only). Joined to samples_public_records by sample_id.",
+      "key": {
+        "@id": "samples-gold-records/sample_id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "samples-gold-records/sample_id",
+          "dataType": "sc:Text",
+          "description": "Foreign key to samples_public_records.sample_id.",
+          "source": {
+            "fileObject": {
+              "@id": "samples-gold"
+            },
+            "extract": {
+              "column": "sample_id"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "samples-public-records/sample_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples-gold-records/_gold",
+          "dataType": "sc:Text",
+          "description": "Gold-only payload: target_versions, active_state, outdated_states, violation_predicate, semantic_spine, target_type, supersession_pattern, horizon, domain, construction_metadata. Loader raises GoldLeakageInRunner if any system-under-test accesses this object at evaluation time.",
+          "source": {
+            "fileObject": {
+              "@id": "samples-gold"
+            },
+            "extract": {
+              "column": "_gold"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "manifest-records",
+      "name": "manifest_records",
+      "description": "Locked matched-group manifest used for paired-bootstrap analysis.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "manifest-records/name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "manifest-main"
+            },
+            "extract": {
+              "jsonPath": "$.name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "manifest-records/version",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "manifest-main"
+            },
+            "extract": {
+              "jsonPath": "$.version"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "manifest-records/selection_rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "manifest-main"
+            },
+            "extract": {
+              "jsonPath": "$.selection_rule"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "manifest-records/groups",
+          "dataType": "sc:Text",
+          "description": "Array of 350 matched groups; each group lists 2 or 3 sample_ids spanning compact / standard / hard horizons of the same semantic spine.",
+          "source": {
+            "fileObject": {
+              "@id": "manifest-main"
+            },
+            "extract": {
+              "jsonPath": "$.groups"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "system-responses-records",
+      "name": "system_responses_records",
+      "description": "Cached responses, joined to samples_public_records by sample_id. Each record carries (sample_id, system_name, response, elapsed_s).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "system-responses-records/sample_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "system-responses"
+            },
+            "extract": {
+              "column": "sample_id"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "samples-public-records/sample_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "system-responses-records/system_name",
+          "dataType": "sc:Text",
+          "description": "System identifier (e.g. long_context_sonnet46, structured_sonnet, graphiti).",
+          "source": {
+            "fileSet": {
+              "@id": "system-responses"
+            },
+            "extract": {
+              "column": "system_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "system-responses-records/response",
+          "dataType": "sc:Text",
+          "description": "Generated response text.",
+          "source": {
+            "fileSet": {
+              "@id": "system-responses"
+            },
+            "extract": {
+              "column": "response"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "system-responses-records/elapsed_s",
+          "dataType": "sc:Float",
+          "description": "Wall-clock seconds for the system to produce this response.",
+          "source": {
+            "fileSet": {
+              "@id": "system-responses"
+            },
+            "extract": {
+              "column": "elapsed_s"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "verdicts-records",
+      "name": "verdicts_records",
+      "description": "LLM-judge verdicts (Opus 4.6 primary; Mistral Large 3 cross-judge), joined to system_responses_records by (sample_id, system_name).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/sample_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "sample_id"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "samples-public-records/sample_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/system_name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "system_name"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "system-responses-records/system_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/vf",
+          "dataType": "sc:Integer",
+          "description": "Binary Version Fidelity verdict (1 = pass, 0 = fail).",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "vf"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/raw_vf",
+          "dataType": "sc:Text",
+          "description": "Raw judge label (PASS / FAIL / AMBIGUOUS) prior to binarization.",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "raw_vf"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/ambiguity_class",
+          "dataType": "sc:Text",
+          "description": "Ambiguity bucket assigned by the judge.",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "ambiguity_class"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/confidence",
+          "dataType": "sc:Text",
+          "description": "Self-reported judge confidence.",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "confidence"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/rationale",
+          "dataType": "sc:Text",
+          "description": "Free-text judge rationale used for qualitative analysis.",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "rationale"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "verdicts-records/recall",
+          "dataType": "sc:Integer",
+          "description": "Optional recall sub-score (1 if response surfaces active-state content, 0 otherwise).",
+          "source": {
+            "fileObject": {
+              "@id": "verdicts-opus"
+            },
+            "extract": {
+              "column": "recall"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

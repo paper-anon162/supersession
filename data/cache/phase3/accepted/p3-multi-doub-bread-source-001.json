@@ -1,0 +1,35 @@
+{
+  "group_id": "p3-multi-doub-bread-source-001",
+  "group_type": "doublet",
+  "horizons": [
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 17.111623970005894,
+      "sample_id": "p3-multi-doub-bread-source-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 19.065345316019375,
+      "sample_id": "p3-multi-doub-bread-source-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T05:16:15.826404+00:00"
+}

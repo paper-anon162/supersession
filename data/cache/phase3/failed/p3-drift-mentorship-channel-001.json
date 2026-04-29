@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-mentorship-channel-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "repeated_use",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: gold-consistency gate failed: cluster A: only 0% of active.value stems appear in history (threshold \u226550%); missing: ['discussion', 'prompt', 'sent', 'structur', 'week', 'write']; cluster C: user-role coverage of active value is 0% (history-wide 0%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.; cluster E: active value contains chunk(s) with zero history overlap: ['structured weekly write-up sent the night before', 'three discussion prompts']. The gold over-specifies an attribute the user never establishes.; cluster H: v2-distinguishing chunk(s) ['structured weekly write-up sent the night before', 'three discussion prompts'] have no token overlap with USER turns of the active session (s1). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency.",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 88.31944997198298,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 20.884955733985407,
+      "sample_id": "p3-drift-mentorship-channel-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 38.77389405100257,
+      "sample_id": "p3-drift-mentorship-channel-001-hard"
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: gold-consistency gate failed: cluster A: only 0% of active.value stems appear in history (threshold \u226550%); missing: ['discussion', 'prompt', 'sent', 'structur', 'week', 'write']; cluster C: user-role coverage of active value is 0% (history-wide 0%; threshold \u226550%). Active value is surfaced by assistant or third-party turns, not the user themselves; drift inference requires user-role agency.; cluster E: active value contains chunk(s) with zero history overlap: ['structured weekly write-up sent the night before', 'three discussion prompts']. The gold over-specifies an attribute the user never establishes.; cluster H: v2-distinguishing chunk(s) ['structured weekly write-up sent the night before', 'three discussion prompts'] have no token overlap with USER turns of the active session (s1). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency."
+  ],
+  "timestamp": "2026-04-27T01:11:18.030384+00:00"
+}

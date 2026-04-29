@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-aban-newsletter-003",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 25.457926351984497,
+      "sample_id": "p3-drift-aban-newsletter-003-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 32.44233013299527,
+      "sample_id": "p3-drift-aban-newsletter-003-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 4,
+      "evidence_attempts": 1,
+      "elapsed_s": 64.16487570502795,
+      "sample_id": "p3-drift-aban-newsletter-003-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T09:22:58.624748+00:00"
+}

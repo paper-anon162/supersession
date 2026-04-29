@@ -1,0 +1,6 @@
+row_label,overall_pct,implicit_drift_pct,explicit_replacement_pct,multi_version_pct,narrowing_pct,compact_pct,standard_pct,hard_pct,n
+query_only_vf,0.7,0.56,2.67,0,0.48,0.67,0.57,0.86,1000
+recall_only_mean_recall,80.18,82.28,73.63,75.35,87.67,82.43,80.33,78.09,9993
+mean_per_system_vf,63.17,37.27,78.44,80.6,73.45,66.09,63.16,60.69,9993
+recall_minus_vf_pp,17.0,45.01,-4.81,-5.25,14.22,16.34,17.16,17.41,
+oracle_current_version_vf,76.68,69.44,84.56,86.43,70.48,80.67,79.43,70.49,999

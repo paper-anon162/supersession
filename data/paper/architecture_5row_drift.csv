@@ -1,0 +1,6 @@
+backbone,config,direct_system,direct_vf,struct_system,struct_vf,lift_pp,lift_ci_lo_pp,lift_ci_hi_pp,n_paired,direct_ambig_pct,struct_ambig_pct
+Llama 8B,default,long_context_llama8b,21.67,sonnet_extract,45.83,24.17,18.61,29.44,360,47.5,33.9
+Sonnet 4.6,default,long_context_sonnet46,35.28,structured_sonnet,59.44,24.17,19.44,28.61,360,41.1,28.1
+Gemini 2.5 Pro,default,long_context_gemini25pro,38.44,structured_gemini25pro,54.72,16.16,11.7,20.61,359,42.6,31.4
+GPT-5.4,reasoning=medium,long_context_gpt54,33.61,structured_gpt54,36.39,2.78,-0.56,6.39,360,42.5,39.7
+GPT-5.4,reasoning=high,long_context_gpt54_high,33.06,structured_gpt54_high,36.11,3.06,0.0,6.11,360,46.4,43.1

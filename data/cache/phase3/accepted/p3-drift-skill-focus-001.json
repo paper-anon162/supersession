@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-skill-focus-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "gradual_narrowing",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 69.41983793501277,
+      "sample_id": "p3-drift-skill-focus-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 2,
+      "evidence_attempts": 1,
+      "elapsed_s": 38.57923227397259,
+      "sample_id": "p3-drift-skill-focus-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 22.185614927991992,
+      "sample_id": "p3-drift-skill-focus-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-26T23:39:43.491134+00:00"
+}

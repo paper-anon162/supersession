@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-stovetop-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 21.392662313999608,
+      "sample_id": "p3-drift-stovetop-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 22.40305221901508,
+      "sample_id": "p3-drift-stovetop-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 17.690976396988844,
+      "sample_id": "p3-drift-stovetop-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-26T23:07:12.697682+00:00"
+}

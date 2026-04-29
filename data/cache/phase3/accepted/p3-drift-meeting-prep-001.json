@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-meeting-prep-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "gradual_narrowing",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 25.249992239987478,
+      "sample_id": "p3-drift-meeting-prep-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 26.976549618004356,
+      "sample_id": "p3-drift-meeting-prep-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 23.253615903988248,
+      "sample_id": "p3-drift-meeting-prep-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-26T23:30:00.056717+00:00"
+}

@@ -1,0 +1,12 @@
+system,dimension_axis,n_overall,overall_vf,object_preference_vf,procedural_constraint_vf,conceptual_stance_vf,interpersonal_boundary_vf,object_preference_n,procedural_constraint_n,conceptual_stance_n,interpersonal_boundary_n
+structured_sonnet,target_type,1000,84.7,87.15,82.29,71.82,100,467,350,110,73
+long_context_sonnet46,target_type,1000,75.2,79.66,68.29,62.73,98.63,467,350,110,73
+long_context_mistral,target_type,1000,72.3,75.8,68.29,59.09,89.04,467,350,110,73
+recency_wrapper,target_type,1000,67.6,71.73,65.71,53.64,71.23,467,350,110,73
+sonnet_extract,target_type,1000,66.5,70.24,65.43,50.0,72.6,467,350,110,73
+active_state_wrapper,target_type,1000,66.0,71.31,62.86,51.82,68.49,467,350,110,73
+recency_rag,target_type,1000,51.7,52.89,50.86,39.09,67.12,467,350,110,73
+long_context_llama8b,target_type,1000,49.6,50.75,49.43,31.82,69.86,467,350,110,73
+graphiti,target_type,994,49.5,54.64,46.55,35.45,52.05,463,348,110,73
+naive_rag,target_type,1000,48.6,47.32,49.71,32.73,75.34,467,350,110,73
+graphiti_inv_off,target_type,994,47.08,52.48,43.39,32.73,52.05,463,348,110,73

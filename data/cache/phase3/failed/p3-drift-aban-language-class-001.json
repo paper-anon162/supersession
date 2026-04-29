@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-aban-language-class-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 16.446119718020782,
+      "sample_id": "p3-drift-aban-language-class-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 18.711584938981105,
+      "sample_id": "p3-drift-aban-language-class-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": false,
+      "failure_reason": "realize failed: active session contains explicit-update phrase 'going forward'; must be implicit (audit P1)",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 50.53887958000996,
+      "sample_id": null
+    }
+  ],
+  "failure_reasons": [
+    "hard: realize failed: active session contains explicit-update phrase 'going forward'; must be implicit (audit P1)"
+  ],
+  "timestamp": "2026-04-27T05:20:03.285112+00:00"
+}

@@ -1,0 +1,5 @@
+dimension,mean_score_1to5,ci_lo,ci_hi,icc_2_1,n_ratings,pre_registered_threshold
+D1_dialogue_naturalness,3.78,3.67,3.89,0.615,120,>=3.5
+D2_pragmatic_plausibility,3.93,3.81,4.06,0.486,120,>=3.5
+D3_supersession_naturalness,3.9,3.77,4.03,0.452,120,>=3.5
+D4_artifact_absence,3.66,3.53,3.79,0.499,120,>=3.5

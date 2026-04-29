@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-physical-mail-storage-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 5,
+      "evidence_attempts": 1,
+      "elapsed_s": 87.41169346199604,
+      "sample_id": "p3-drift-physical-mail-storage-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 25.69009849699796,
+      "sample_id": "p3-drift-physical-mail-storage-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 21.983377155003836,
+      "sample_id": "p3-drift-physical-mail-storage-001-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T00:47:46.069238+00:00"
+}

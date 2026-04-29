@@ -1,0 +1,47 @@
+{
+  "group_id": "p3-drift-debug-pattern-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "repeated_use",
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 20.33702939498471,
+      "sample_id": "p3-drift-debug-pattern-001-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 22.039363294985378,
+      "sample_id": "p3-drift-debug-pattern-001-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": false,
+      "failure_reason": "realize failed: gold-consistency gate failed: cluster E: active value contains chunk(s) with zero history overlap: ['run']. The gold over-specifies an attribute the user never establishes.; cluster H: v2-distinguishing chunk(s) ['run'] have no token overlap with USER turns of the active session (s8). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency.",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 79.45856182000716,
+      "sample_id": null
+    }
+  ],
+  "failure_reasons": [
+    "hard: realize failed: gold-consistency gate failed: cluster E: active value contains chunk(s) with zero history overlap: ['run']. The gold over-specifies an attribute the user never establishes.; cluster H: v2-distinguishing chunk(s) ['run'] have no token overlap with USER turns of the active session (s8). The drift inference requires the user to surface the new attribute directly; assistant-only or other-session mentions don't establish user agency."
+  ],
+  "timestamp": "2026-04-27T02:23:41.644373+00:00"
+}

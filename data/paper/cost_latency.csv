@@ -1,0 +1,14 @@
+system,n,mean_s,median_s,p95_s,total_wall_s
+structured_sonnet,1000,11.62,10.89,18.1,11624.0
+long_context_sonnet46,1000,4.83,3.87,10.41,4834.0
+long_context_mistral,1000,1.82,1.26,4.73,1818.0
+long_context_llama8b,1000,1.74,1.07,4.93,1737.0
+naive_rag,1000,1.96,1.22,5.64,1964.0
+recency_rag,1000,1.71,0.86,5.69,1710.0
+recency_wrapper,1000,1.04,0.75,2.8,1039.0
+sonnet_extract,1000,8.91,8.87,13.09,8912.0
+active_state_wrapper,1000,1.03,0.73,2.76,1027.0
+graphiti,994,128.48,109.81,263.64,127710.0
+graphiti_inv_off,994,128.48,109.81,263.64,127710.0
+query_only,1000,3.32,1.97,10.35,3323.0
+oracle_current_version,1000,2.08,1.07,6.91,2078.0

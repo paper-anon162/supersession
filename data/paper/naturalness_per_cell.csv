@@ -1,0 +1,9 @@
+pattern,horizon,D1_mean,D2_mean,D3_mean,D4_mean,n_per_dim
+implicit_drift,compact,3.73,3.87,3.93,3.27,15
+implicit_drift,standard,3.73,4.2,4.2,4.0,15
+explicit_replacement,compact,3.87,4.0,4.13,3.8,15
+explicit_replacement,standard,3.8,4.13,4.27,3.4,15
+narrowing,compact,3.8,3.53,3.47,3.47,15
+narrowing,standard,4.0,4.27,4.33,4.13,15
+multi_version,compact,4.13,3.6,3.4,3.67,15
+multi_version,standard,3.2,3.87,3.47,3.53,15

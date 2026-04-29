@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-aban-fasting-002",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 3,
+      "evidence_attempts": 1,
+      "elapsed_s": 68.79525210399879,
+      "sample_id": "p3-drift-aban-fasting-002-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 21.794600592023926,
+      "sample_id": "p3-drift-aban-fasting-002-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 24.463000652991468,
+      "sample_id": "p3-drift-aban-fasting-002-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T06:09:43.232138+00:00"
+}

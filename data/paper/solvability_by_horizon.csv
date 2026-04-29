@@ -1,0 +1,4 @@
+horizon,n,majority_solvability_pct,unanimous_correct_pct,problematic_sample_pct
+compact,90,100.0,78.9,0.0
+standard,90,96.7,75.6,3.3
+hard,90,97.8,68.9,2.2

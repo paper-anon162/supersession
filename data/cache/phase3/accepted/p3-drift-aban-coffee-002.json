@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-drift-aban-coffee-002",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": "abandonment",
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 20.97100523498375,
+      "sample_id": "p3-drift-aban-coffee-002-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 23.952085660013836,
+      "sample_id": "p3-drift-aban-coffee-002-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 1,
+      "elapsed_s": 23.00067928698263,
+      "sample_id": "p3-drift-aban-coffee-002-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T06:33:22.870923+00:00"
+}

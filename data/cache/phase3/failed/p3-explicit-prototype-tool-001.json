@@ -1,0 +1,49 @@
+{
+  "group_id": "p3-explicit-prototype-tool-001",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": false,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": false,
+      "failure_reason": "realize failed: leakage filter rejected: reasons=['active_value_semantic_leakage'], matched_tokens=[], matched_relation_phrases=[]",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 75.06445460297982,
+      "sample_id": null
+    },
+    {
+      "horizon": "standard",
+      "accepted": false,
+      "failure_reason": "realize failed: leakage filter rejected: reasons=['active_value_semantic_leakage'], matched_tokens=[], matched_relation_phrases=[]",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 65.10412416199688,
+      "sample_id": null
+    },
+    {
+      "horizon": "hard",
+      "accepted": false,
+      "failure_reason": "realize failed: leakage filter rejected: reasons=['active_value_semantic_leakage'], matched_tokens=[], matched_relation_phrases=[]",
+      "realize_attempts": 5,
+      "evidence_attempts": 0,
+      "elapsed_s": 62.98866362700937,
+      "sample_id": null
+    }
+  ],
+  "failure_reasons": [
+    "compact: realize failed: leakage filter rejected: reasons=['active_value_semantic_leakage'], matched_tokens=[], matched_relation_phrases=[]",
+    "standard: realize failed: leakage filter rejected: reasons=['active_value_semantic_leakage'], matched_tokens=[], matched_relation_phrases=[]",
+    "hard: realize failed: leakage filter rejected: reasons=['active_value_semantic_leakage'], matched_tokens=[], matched_relation_phrases=[]"
+  ],
+  "timestamp": "2026-04-27T02:50:40.637175+00:00"
+}

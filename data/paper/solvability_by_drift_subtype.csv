@@ -1,0 +1,4 @@
+drift_subtype,n,majority_solvability_pct,unanimous_correct_pct,problematic_sample_pct
+repeated_use,80,96.2,70.0,3.8
+abandonment,60,100.0,66.7,0.0
+gradual_narrowing,40,97.5,70.0,2.5

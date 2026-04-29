@@ -1,0 +1,45 @@
+{
+  "group_id": "p3-narrow-conf-talk-002",
+  "group_type": "triple",
+  "horizons": [
+    "compact",
+    "standard",
+    "hard"
+  ],
+  "spine_source": "hand",
+  "implicit_drift_type": null,
+  "accepted": true,
+  "rule_version": "v1.0-2026-04-26",
+  "evidence_prompt_version": "v1.0-2026-04-26",
+  "members": [
+    {
+      "horizon": "compact",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 18.74329286001739,
+      "sample_id": "p3-narrow-conf-talk-002-compact"
+    },
+    {
+      "horizon": "standard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 20.36411004999536,
+      "sample_id": "p3-narrow-conf-talk-002-standard"
+    },
+    {
+      "horizon": "hard",
+      "accepted": true,
+      "failure_reason": null,
+      "realize_attempts": 1,
+      "evidence_attempts": 0,
+      "elapsed_s": 19.06708146102028,
+      "sample_id": "p3-narrow-conf-talk-002-hard"
+    }
+  ],
+  "failure_reasons": [],
+  "timestamp": "2026-04-27T08:50:57.871671+00:00"
+}

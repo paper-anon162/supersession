@@ -1,0 +1,91 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# Packaging and build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+site/
+
+# Local editor and assistant state
+.idea/
+.vscode/
+.claude/
+.codex
+*.swp
+*.swo
+*~
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Logs and local runtime files
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# Upstream skeleton sources (LongMemEval / LoCoMo) are not redistributed;
+# users clone them per external/README.md.
+external/*
+!external/README.md
+
+# Reproduction-essential data files are tracked under data/.
+# Annotation pools (raw per-annotator) live only in the supplementary
+# archive and are NOT redistributed in-repo. Skeleton corpora are
+# user-built from the upstream sources (see data/skeletons/README.md).
+data/judge_validation_pool/
+data/solvability_pool/
+data/naturalness_pool/
+data/failure_attribution_pool/
+# Skeleton JSON payloads are user-fetched; only the README is tracked.
+data/skeletons/locomo/
+data/skeletons/longmemeval/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large/local model and dataset artifacts
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.bin
+*.parquet
+*.arrow
+
+# Paper draft + local working notes (kept private)
+/paper/
+COMMANDS.md
+HANDOFF.md
+TODO.md
+Formatting_Instructions_For_NeurIPS_2026/
