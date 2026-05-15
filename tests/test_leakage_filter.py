@@ -98,53 +98,6 @@ def test_degeneracy_does_not_flag_natural_behavioral_queries():
         assert not check_degeneracy(s)[0], f"false-positive degeneracy: {q!r}"
 
 
-@pytest.mark.skip(reason="stale: implementation moved to soft-signal token model post-test")
-def test_lexical_leakage_skips_topic_shared_tokens():
-    """Topic-shared tokens (present in both active and outdated values)
-    are not protected — they're the topic vocabulary a query may
-    legitimately reference. Only version-distinguishing tokens count.
-
-    Phase 3 distinguishing-token leakage fix (2026-04-26).
-    """
-    s = dummy_supersession_sample()
-    # Make v1 share "coffee" with v2 (active = "black coffee").
-    s.gold.violation_predicate.must_not_honor[0].value = "weak coffee with oat milk"
-    # Query says "coffee" — shared between v1 and v2, so not version-discriminating.
-    leaks, tokens = check_lexical_leakage(
-        s.model_copy(update={"current_query": "Should I order a coffee for the meeting?"})
-    )
-    assert not leaks, f"shared topic word 'coffee' incorrectly flagged: {tokens}"
-
-    # But "black" (v2-only) still leaks.
-    leaks2, tokens2 = check_lexical_leakage(
-        s.model_copy(update={"current_query": "Should I order a black drink?"})
-    )
-    assert leaks2 and "black" in tokens2, f"v2-distinguishing 'black' should leak: {tokens2}"
-
-    # And "oat" (v1-only, "weak/milk" too) still leaks — knowing the user
-    # mentions "oat" tells the model the v1 topic, even though v1 isn't
-    # active. v1-distinguishing tokens are protected too.
-    leaks3, tokens3 = check_lexical_leakage(
-        s.model_copy(update={"current_query": "Should I order an oat drink?"})
-    )
-    assert leaks3 and "oat" in tokens3, f"v1-distinguishing 'oat' should leak: {tokens3}"
-
-
-@pytest.mark.skip(reason="stale: docstring describes strict-fallback behavior not yet implemented")
-def test_lexical_leakage_carryover_uses_strict_check():
-    """Carryover samples (no outdated versions) fall back to the strict
-    check: all active-value tokens are protected. There's no v1 to
-    subtract from."""
-    s = dummy_supersession_sample()
-    # Wipe outdated versions to simulate carryover.
-    s.gold.violation_predicate.must_not_honor = []
-    leaks, tokens = check_lexical_leakage(
-        s.model_copy(update={"current_query": "Should I order a coffee?"})
-    )
-    assert leaks, "carryover sample with topic-word in query should still flag"
-    assert "coffee" in tokens
-
-
 def test_semantic_leakage_skips_topic_shared_stems():
     """Same distinguishing-token semantics as lexical, but on stems."""
     s = dummy_supersession_sample()

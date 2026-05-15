@@ -127,7 +127,7 @@ resolves. Skeleton corpora are not in the archive --- see
 | Script | Output |
 |---|---|
 | `scripts/validate_release.py` | 9-section release-integrity check |
-| `scripts/build_paper_data.py` | regenerate every paper-table CSV |
+| `scripts/build_paper_data.py` | regenerate every main-text paper-table CSV (the 4 vendor-extension appendix CSVs ship as static artifacts) |
 | `scripts/build_paper_figures.py` | regenerate every paper figure (PDF) |
 | `scripts/recompute_main_table.py` | overall and per-pattern VF table |
 | `scripts/recompute_paired_ci.py` | paired-bootstrap 95% CIs |
@@ -207,7 +207,7 @@ on a freshly re-realized pool produces a new locked selection.
 ```
 pipeline/             benchmark engine: judge, baselines, retrieval, evaluation
 scripts/              reproduction + recompute + per-stage runners
-seeds/                hand-authored Phase 3 semantic spines (28 batches)
+seeds/                hand-authored Phase 3 semantic spines (36 batches)
 prompts/              judge prompt + extraction / selection prompts
 docker/               Graphiti + FalkorDB compose for the temporal-graph baseline
 tests/                pytest regression suite

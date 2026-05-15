@@ -80,43 +80,6 @@ def test_materialize_strong_seed_passes_same_target_check():
     assert "value_replacement" in report.pair_results[0][2].triggered_rules
 
 
-@pytest.mark.skip(reason="stale: must_not_honor now de-duplicates by value")
-def test_reverted_seed_has_three_versions_and_active_matches_initial():
-    spec = SeedSpec(
-        sample_id="test-reverted-001",
-        sample_type="supersession",
-        target_type="object_preference",
-        domain="food_dining",
-        target_description="user's morning beverage",
-        target_slot_id="morning_beverage::reverted::v1",
-        topic="morning_beverage",
-        versions=[
-            VersionSpec(value="oat-milk latte", polarity="prefer", session_introduced=1),
-            VersionSpec(value="black coffee", polarity="prefer", session_introduced=3),
-            VersionSpec(value="oat-milk latte", polarity="prefer", session_introduced=5),
-        ],
-        sessions=[
-            SessionSpec(
-                session_id=f"s{i}",
-                turns=[
-                    TurnSpec(role="user", text=f"chat {i} content."),
-                    TurnSpec(role="assistant", text=f"reply {i}."),
-                ],
-            )
-            for i in range(1, 6)
-        ],
-        current_query="Putting in tomorrow's drinks order — what should I list for me?",
-        required_behavior="recommend the original oat-milk latte order",
-        invalid_behavior=["recommend a black coffee order"],
-        subtype="reverted",
-    )
-    sample = materialize(spec)
-    assert sample.gold.metadata.competing_versions_count == 3
-    assert sample.gold.violation_predicate.must_honor.value == "oat-milk latte"
-    assert sample.gold.violation_predicate.must_honor.session_introduced == 5
-    assert len(sample.gold.violation_predicate.must_not_honor) == 2
-
-
 def test_seeds_emit_recall_query_via_attach():
     sample = materialize(_make_strong_seed())
     assert sample.recall_query is not None
